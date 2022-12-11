@@ -1,0 +1,457 @@
+html {
+  scroll-behavior: smooth;
+  margin: 0%;
+  padding: 0%;
+}
+
+body {
+  margin: 0%;
+  padding: 0%;
+}
+
+.main {
+  margin: 0%;
+  padding: 15px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: rgb(43, 43, 43);
+  z-index: 99;
+  color: #fff;
+}
+
+
+
+.pc{
+  display: block;
+}
+
+.mobile{
+  display: block;
+}
+
+@media screen and (max-width: 9999px) {
+	.title-top-h2 div {
+    display: none;  /* 横に並べる */
+  }
+  .mobile div {
+    display: none;
+  }
+
+}
+@media screen and (max-width: 1012px) {
+	.title-top-h2 div {
+    display: block;  /* 横に並べる */
+  }
+
+  .title-top-h1 div {
+    display: none;
+  }
+
+  .image img {
+    display: none;  /* 横に並べる */
+  }
+
+  .pc div {
+    display: none;
+  }
+
+}
+
+
+
+#header{
+  position: relative;/*h1の中央寄せ配置の起点とするためのrelative*/
+  height: 100vh;/*高さを全画面にあわせる*/
+} 
+
+#video-area{
+  position: fixed;
+  z-index: -1;/*最背面に設定*/
+  top: 0;
+  right:0;
+  left:0;
+  bottom:0;
+  overflow: hidden;
+}
+
+#video {
+  /*天地中央配置*/
+  position: absolute;
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*縦横幅指定*/
+  width: 177.77777778vh; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+  height: 56.25vw; /* 16:9の幅 → 9 ÷ 16 = 56.25% */
+  min-height: 100%;
+  min-width: 100%;
+}
+
+
+div.title-top {
+  background-color: red;
+}
+
+.title-top-h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 900px;
+  height: auto;
+  text-align: center;/*一応BOX内の文字も中央寄せ*/
+}
+
+.title-top-h2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform : translate(-50%,-50%);
+  transform : translate(-50%,-50%);
+  width: 350px;
+  height: auto;
+  text-align: center;/*一応BOX内の文字も中央寄せ*/
+}
+
+.bgvideo {
+  width: 100%;
+}
+
+
+.inline-block li {
+  display: inline-block;
+  padding-right: 20px;
+  vertical-align: middle
+}
+
+.inline-block2 li {
+  display: inline-block;
+  padding-right: 20px;
+  vertical-align: middle
+}
+.inline-block2 a {
+  text-decoration: none;
+  color: white;
+  z-index: 5;
+}
+
+.inline-block a {
+  text-decoration: none;
+  color: white;
+  z-index: 5;
+}
+
+.line-h {
+  line-height: 50%;
+}
+
+
+/* AnimationCSS */
+
+a {
+  background: linear-gradient(0deg, rgb(60, 207, 94), rgb(60, 207, 94)) no-repeat right bottom / 0 var(--bg-h);
+  transition: background-size 350ms;
+  --bg-h: 100%;
+}
+a:where(:hover, :focus-visible) {
+  background-size: 100% var(--bg-h);
+  background-position-x: left;
+}
+
+.underline {
+  padding-bottom: 2px;
+  --bg-h: 2px;
+}
+
+
+
+@media screen and (max-width: 9999px) {
+  .header-moblie {
+    display: none;
+  }
+  .header-pc {
+    display: block;
+  }
+}
+@media screen and (max-width: 1012px) {
+  .header-pc {
+    display: none;
+  }
+  .header-moblie {
+    display: block;
+  }
+}
+
+
+/* moblie menu bar */
+/* 
+hamburger(ハンバーガーアイコン)
+=================================== */
+.hamburger {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 50px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 300;
+}
+
+.hamburger__line {
+  position: absolute;
+  width: 50px;
+  height: 3px;
+  right: 0;
+  background-color: #000;
+  transition: all 0.5s;
+}
+
+.hamburger__line--1 {
+  top: 1px;
+  background-color: #fff;
+}
+
+.hamburger__line--2 {
+  top: 18px;
+  background-color: #fff;
+}
+
+.hamburger__line--3 {
+  top: 36px;
+  background-color: #fff;
+}
+
+/*ハンバーガーがクリックされたら*/
+.open .hamburger__line--1 {
+  transform: rotate(-45deg);
+  top: 11px;
+  background-color: #000;
+}
+
+.open .hamburger__line--2 {
+  opacity: 0;
+  background-color: #000;
+}
+
+.open .hamburger__line--3 {
+  transform: rotate(45deg);
+  top: 11px;
+  background-color: #000;
+}
+
+/* 
+sp-nav(ナビ)
+=================================== */
+.sp-nav {
+  position: fixed;
+  top: -100%; /*ハンバーガーがクリックされる前はWindow上部に隠す*/
+  left: 0;
+  width: 100%; /* 出てくるスライドメニューの幅 */
+  height: 100vh;
+  background-color: #fff;
+  transition: all 0.5s;
+  z-index: 200;
+  overflow-y: auto;
+}
+
+/*ハンバーガーがクリックされたら上からスライド*/
+.open .sp-nav {
+  top: 0;
+}
+
+
+/* 
+black-bg(ハンバーガーメニュー解除用bg)
+=================================== */
+.black-bg {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 5;
+  background-color: #000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 100;
+}
+
+/*ハンバーガーメニューが開いたら表示*/
+.open .black-bg {
+  opacity: 0.3;
+  visibility: visible;
+}
+
+.righttt {
+  margin-left: auto;
+}
+
+.m-link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  list-style: none;
+  text-shadow: 0px 0px 5px black;
+  font-size: 23px;
+}
+
+.fixed {
+  position: fixed;
+  top: 0%;
+  right: 0%;
+  z-index: 99;
+}
+
+.stuffdesign {
+  padding-left: 15px;
+  padding-right: 15px;
+  width: auto;
+  margin: auto;
+  text-align: left;
+}
+
+
+
+
+
+/* animation zoom image css */
+.zoom_box-p{
+  width: 600px;
+  margin:0 auto; 
+  overflow:hidden;
+  border-radius: 5px;
+}
+ .zoom_box-p img{
+  transition:1s all;
+  width: 600px;
+  border-radius: 5px;
+ }
+ .zoom_box-p img:hover{
+   transform:scale(1.2,1.2);
+   transition:1s all;
+   border-radius: 40px;
+ }
+ .zoom_box-p div:hover{
+  border-radius: 40px;
+}
+
+
+ .zoom_box-m{
+  width: 300px;
+  margin:0 auto; 
+  overflow:hidden;
+}
+ .zoom_box-m img{
+  transition:1s all;
+  width: 300px;
+ }
+
+
+ .p {
+  text-align: left;
+  margin: auto;
+ }
+
+ .m {
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+  padding-bottom: 80px;
+ }
+
+ @media screen and (max-width: 9999px) {
+  .zoom_box-m {
+    display: none;
+  }
+  .zoom_box-p {
+    display: block;
+  }
+}
+@media screen and (max-width: 1012px) {
+  .zoom_box-p {
+    display: none;
+  }
+  .zoom_box-m {
+    display: block;
+  }
+}
+
+
+@media screen and (max-width: 9999px) {
+  .m {
+    display: none;
+  }
+  .p {
+    display: block;
+  }
+}
+@media screen and (max-width: 1012px) {
+  .p {
+    display: none;
+  }
+  .m {
+    display: block;
+  }
+}
+
+
+#header2{
+  /*h1の中央寄せ配置の起点とするためのrelative*/
+  height: 100vh;/*高さを全画面にあわせる*/
+} 
+
+#video-area2{
+  position: fixed;
+  z-index: -1;/*最背面に設定*/
+  top: 0;
+  right:0;
+  left:0;
+  bottom:0;
+  overflow: hidden;
+}
+
+#video2 {
+  width: 100%; /* 16:9 の幅→16 ÷ 9＝ 177.77% */
+  min-height: 100%;
+  min-width: 100%;
+}
+
+
+.btn-ui{
+  background-color: rgb(78, 78, 196);
+  color: white;
+  text-decoration: none;
+  border-radius: 90px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.btn-ui2{
+  background-color: rgba(172, 172, 236, 0);
+  color: white;
+  text-decoration: none;
+  border-radius: 90px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn-ui3{
+  background-color: rgba(172, 172, 236, 0);
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: -30px;
+  margin-right: 60px;
+}
+
